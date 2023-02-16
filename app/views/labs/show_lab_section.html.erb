@@ -1,0 +1,68 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button id="scaleDownButton" type="button" class="btn btn-light ms-auto">-</button>
+        <button id="scaleToFitButton" type="button" class="btn btn-light mx-3">fit</button>
+        <button id="scaleUpButton" type="button" class="btn btn-light">+</button>
+        <button id="closeButton" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="background-color: rgba(0,0,0,50%)">
+        <%= turbo_frame_tag "content_frame" do%>
+
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%if user_signed_in? %>
+<!-- Editor's Modal -->
+<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabl" aria-hidden="true">
+  <div class="modal-dialog" style="width: 50vw">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="formModalLabel">Add new images</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="modalBody" class="modal-body" style="height:50vh">
+        
+      </div>
+    </div>
+  </div>
+</div>
+<%end%>
+
+
+
+
+
+
+
+
+<div class="container">
+  <h1><%=@lab_section.name%></h1>
+  <hr/>
+
+  <div class="container">
+    <div class="row gy-5">
+      <% @lab_section.lab_sub_sections.each do |sub_section|%>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <%= button_to lab_sub_section_images_path(@lab_section.lab, @lab_section, sub_section), class: "btn shadow trigger", data: {turbo_frame: "content_frame", bs_toggle: "modal", bs_target: "#exampleModal"} do%>
+            <%#= image_tag sub_section.preview, class: "rounded-3 img-fluid"%>
+            <%=sub_section.name%>
+          <%end%>  
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<%= javascript_include_tag "modal.js"%>

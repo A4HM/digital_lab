@@ -1,0 +1,100 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <%if user_signed_in?%>
+          <button id="addImagesButton" type="button" class="btn btn-light ms-2" data-bs-toggle="modal" data-bs-dismiss="modal" data-bs-target="#formModal">Add Images</button>
+        <%end%>
+        <button id="scaleDownButton" type="button" class="btn btn-light ms-auto">-</button>
+        <button id="scaleToFitButton" type="button" class="btn btn-light mx-3">fit</button>
+        <button id="scaleUpButton" type="button" class="btn btn-light">+</button>
+
+        <button id="closeButton" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="background-color: rgba(0,0,0,50%)">
+        <%= turbo_frame_tag "content_frame" do%>
+
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%if user_signed_in? %>
+<!-- Editor's Modal -->
+<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabl" aria-hidden="true">
+  <div class="modal-dialog" style="width: 50vw">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="formModalLabel">Add new images</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="modalBody" class="modal-body" style="height:50vh">
+        <%= form_with id: "form" do |f|%>
+          <%=f.label :images%>
+          <%=f.file_field :images, multiple: true%><br/>
+
+          <%=f.submit%>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+<%end%>
+
+
+
+
+
+
+
+
+<div class="container">
+  <h1><%=@lab_section.name%></h1>
+  <hr/>
+
+  <div class="container">
+    <div class="row gy-5">
+      <%if @lab_sub_sections.present?%>
+        <% @lab_sub_sections.each do |sub_section|%>
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card border-light shadow rounded-3 mb-3">
+              <%if user_signed_in?%>
+                <div class="card-header">
+                  <h5 style="display:inline-block"><%=sub_section.name%></h5>
+                  <%=link_to "Edit", edit_lab_sub_section_path(sub_section.id), class: "btn btn-primary float-end", style: "text-decoration: none; color: white"%>
+                </div>
+              <%end%>
+              <%= button_to lab_sub_section_images_path(sub_section), class: "btn shadow trigger", method: :get, data: {turbo_frame: "content_frame", bs_toggle: "modal", bs_target: "#exampleModal"} do%>
+                <%if sub_section.logo.attached?%>
+                  <%= image_tag sub_section.logo, class: "rounded-3 img-fluid"%>
+                <%else%>
+                  <%=sub_section.name%>
+                <%end%>
+              <%end%>  
+            </div>
+          </div>
+        <%end%>
+      <%end%>
+      <%if user_signed_in?%>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="card border-light shadow rounded-3 mb-3">
+            <%= link_to new_lab_section_lab_sub_section_path(@lab_section.id) do%>
+              <%=image_tag "/assets/plus-symbol.png", class: "img-fluid"%>
+            <%end%>
+            <div class="card-footer">Create new sub section</div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<%= javascript_include_tag "modal.js"%>

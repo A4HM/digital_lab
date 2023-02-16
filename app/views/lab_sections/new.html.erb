@@ -1,0 +1,10 @@
+<h1> Create new section</h1>
+<%= form_with model: @lab_section, url: lab_lab_sections_path(@lab_section.lab.id) do |f|%>
+  <%=f.label :name%>
+  <%=f.text_field :name%><br/>
+
+  <%=f.label :logo%>
+  <%=f.file_field :logo%><br/>
+
+  <%=f.submit%>
+<%end%>

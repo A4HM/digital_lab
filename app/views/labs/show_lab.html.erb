@@ -1,0 +1,33 @@
+<div class="container">
+  <h1><%=@lab.name%> Lab</h1>
+  <hr/>
+
+  <div class="container">
+   
+    <div class="row mb-5">
+      <% @lab.lab_sections.each do |section|%>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="card border-light shadow rounded-3 mb-3">
+            <div class="card-header"><h5><%=section.name%></h5></div>
+            <%if section.logo.attached?%>
+              <%= image_tag section.logo, class: "card-image-bottom rounded-bottom"%>
+            <%end%>
+            <%= link_to "", lab_section_path(@lab, section), class: "stretched-link" %>
+          </div>
+        </div>
+      <% end%>
+
+
+      <%if user_signed_in?%>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="card border-light shadow rounded-3 mb-3">
+            <div class="card-header"><h5>Create new section</h5></div>
+            <%= link_to "", new_lab_section_path(@lab), class: "stretched-link" %>
+          </div>
+        </div>
+      <%end%>
+
+
+    </div>
+  </div>
+</div>

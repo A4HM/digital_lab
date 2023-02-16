@@ -1,0 +1,33 @@
+<% if @q.size > 0%>
+  <div class="container">
+    <% @q.each do |lab|%>
+      <h1><%=lab[:lab].name%></h1>
+      <hr/>
+
+      <div class="container border mb-5">
+        <% lab[:lab_sections].each do |lab_section|%>
+          <h3>> <%=lab_section[:lab_section].name%></h3>
+          <hr/>
+
+          <div class="container border">
+            <% lab_section[:lab_sub_sections].each do |lab_sub_section| %>
+              <h6>> <%=lab_sub_section[:lab_sub_section].name%></h6>
+              <hr class="mt-1"/>
+
+              <div class="row g-5">
+                <% lab_sub_section[:images].each do |image|%>
+                  <%= link_to image, class: "col-lg-4 col-md-6 col-sm-12" do%>
+                    <%= image_tag image, class: "rounded-3", style: "width: 100%; height: auto"%>
+                  <%end%>
+                <%end%>
+              </div>
+            <%end%>
+          </div>
+        <%end%>
+      </div>
+    <%end%>
+  </div>
+
+<%else%>
+  <h4>No Matches Found :(</h4>
+<%end%>

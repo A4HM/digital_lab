@@ -1,0 +1,25 @@
+<div id="polygon" data-src="<%=url_for(@polygon.file)%>" data-id="<%=@polygon.id%>" hidden="true"></div>
+<div id="labels" data-labels="<%=@labels.to_json%>" hidden="true"></div>
+
+  <canvas id="canvas"></canvas>
+  <canvas id="hud-canvas"></canvas>
+
+<div class="flex-container">
+  <div  id="left-panel"></div>
+  <div id="middle-panel"></div>
+  <div id="right-panel"></div>
+</div>
+
+<%if user_signed_in?%>
+  <div class="buttons">
+    <button id="addLabelButton" >Add label</button>
+  </div>
+<%end%>
+
+
+<%= stylesheet_link_tag "3dprogram.css" %>
+<%if user_signed_in?%>
+  <script type="module" src="/assets/3d_program_editors.js"></script>
+<%else%>
+  <script type="module" src="/assets/3d_program.js"></script>
+<%end%>

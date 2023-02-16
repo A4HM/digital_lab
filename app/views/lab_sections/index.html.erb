@@ -1,0 +1,68 @@
+<div class="container">
+  <h1><%=@lab.name%> Lab</h1>
+  <hr/>
+
+  <div class="container">
+   
+    <div class="row mb-5">
+      <%if @lab_sections.present?%>
+        <% @lab_sections.each do |section|%>
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card border-light shadow rounded-3 mb-3">
+              <%if user_signed_in?%>
+                <div class="card-header">
+                  <h5 style="display:inline-block"><%=section.name%></h5>
+                  <%=link_to "Edit", edit_lab_section_path(section.id), class: "btn btn-primary float-end", style: "text-decoration: none; color: white"%>
+                </div>
+              <%end%>
+              <%if section.logo.attached?%>
+                <%= link_to lab_section_lab_sub_sections_path(section.id) do%>  
+                  <%= image_tag section.logo, class: "card-image-bottom img-fluid rounded-bottom"%>
+                <%end%>
+              <%end%>
+            </div>
+          </div>
+        <% end%>
+      <%end%>
+      <%if user_signed_in?%>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="card border-light shadow rounded-3 mb-3">
+            <%= link_to new_lab_lab_section_path(@lab.id) do%>
+              <%=image_tag "/assets/plus-symbol.png", class: "img-fluid"%>
+            <%end%>
+            <div class="card-footer">Create new section</div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
+
+
+  <h3>Videos</h3>
+  <hr/>
+
+  <div class="container">
+    <div class="row justify-content-center g-5">
+      <%@videos.each do |video|%>
+        <div class="col-12">
+          <div class="ratio ratio-16x9 shadow text-center mt-4 mb-4">
+            <iframe class="embed-responsive-item" src="<%=video.url%>" allowfullscreen></iframe>
+          </div>
+          <%if user_signed_in?%>
+            <%=link_to "Edit", edit_lab_video_path(video.id), class: "btn btn-secondary"%>
+          <%end%>
+        </div>
+      <%end%>
+      <%if user_signed_in?%>
+        <div class="col-4">
+          <div class="card border-light shadow rounded-3 mb-3">
+            <%= link_to new_lab_lab_video_path(@lab.id) do%>
+              <%=image_tag "/assets/plus-symbol.png", class: "img-fluid"%>
+            <%end%>
+            <div class="card-footer">Add a video</div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>

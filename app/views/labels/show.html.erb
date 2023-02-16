@@ -1,0 +1,5 @@
+<%= turbo_frame_tag dom_id(@label) do%>
+  <%= link_to edit_polygon_label_path(@label.id), style: "text-decoration: none; color: white" do%>
+    <%= @label.text%>
+  <%end%>
+<%end%>

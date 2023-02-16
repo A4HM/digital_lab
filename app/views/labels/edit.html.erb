@@ -1,0 +1,8 @@
+<%= turbo_frame_tag dom_id(@label) do%>
+  <%= form_with model: @label, url: polygon_label_path(@label.id) do |f|%>
+    <%= f.text_field :text, placeholder: @label.text%>
+    <%= f.submit "Update", class: "btn btn-primary"%>
+  <%end%>
+
+  <%= button_to "Delete", polygon_label_path(@label.id), class: "btn btn-danger", method: :delete%>
+<%end%>

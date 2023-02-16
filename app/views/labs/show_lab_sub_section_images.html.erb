@@ -1,0 +1,18 @@
+<%= turbo_frame_tag "content_frame" do%>
+  <div class="container">
+    <div id="imagesParent" class="row justify-content-center">
+      <%if @sub_section.images.count < 1%>
+        <h1>Empty</h1>
+      <%else%>
+        <%@sub_section.images.each do |image|%>
+          <div class="col-12 text-center" style="height:90vh; margin-bottom: 5vh; padding:0px">
+            <%= image_tag image , class: "rounded-3 shadow", style: "height: 100%; width: auto"%>
+            <%if user_signed_in?%>
+              <%=button_to "Delete", delete_image_path(:image_id => image.id), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" }, remote: true%>
+            <%end%>
+          </div>
+        <%end%>
+      <%end%>
+    </div>
+  </div>
+<%end%>

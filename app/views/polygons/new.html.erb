@@ -1,0 +1,12 @@
+<%= form_with model: @polygon do |f|%>
+  <%=f.label :name%>
+  <%=f.text_field :name%><br/>
+
+  <%=f.label :file%>
+  <%=f.file_field :file%><br/>
+
+  <%=f.label :preview%>
+  <%=f.file_field :preview%><br/>
+
+  <%=f.submit%>
+<%end%>

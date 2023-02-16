@@ -1,0 +1,10 @@
+<h1> Edit video</h1>
+<p><strong><em>make sure you paste the link for the embed! Click on the youtube video then the "share" button, after that choose "embed" and you will see on the left "src="https://www.youtube.com/embed/"", link starts from "https://".</strong></em></p>
+<%= form_with model: @lab_video, url: lab_video_path(@lab_video.id) do |f|%>
+  <%=f.label :url%>
+  <%=f.text_field :url%><br/>
+
+  <%=f.submit%>
+<%end%>
+
+<%= button_to "Delete", lab_video_path(@lab_video.id), class: "btn btn-danger m-5", method: :delete, data: {turbo_confirm: "Are you sure? This action can't be reveresed"}%>

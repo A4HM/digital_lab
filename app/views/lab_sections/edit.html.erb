@@ -1,0 +1,12 @@
+<h3><%=@lab_section.name%></h3>
+<%= form_with model: @lab_section do |f|%>
+  <%=f.label :name%>
+  <%=f.text_field :name%><br/>
+
+  <%=f.label :logo%>
+  <%=f.file_field :logo%><br/>
+  
+  <%=f.submit%>
+<%end%>
+
+<%=button_to "Delete", lab_section_path(@lab_section.id), class: "btn btn-danger m-5", method: :delete, data: {turbo_confirm: "Are you sure? This action can't be reversed."}%>

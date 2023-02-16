@@ -1,0 +1,38 @@
+<h1> Choose a model</h1>
+<hr/>
+
+<div class="container">
+  <div class="row mb-5">
+    <%if @polygons.present?%>
+      <% @polygons.each do |polygon|%>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="card border-light shadow rounded-3 mb-3">
+            <%if polygon.preview.attached?%>
+              <%=link_to polygon_path(polygon.id) do%>  
+                <%=image_tag polygon.preview, class: "card-image-top img-fluid rounded-top"%>
+              <%end%>
+            <%end%>
+            <div class="card-footer">
+              <%=link_to polygon_path(polygon.id), style: "text-decoration:non;color:black" do%>  
+                <h5 style="display:inline-block"><%=polygon.name%></h5>
+              <%end%>
+              <%if user_signed_in?%>
+                <%=link_to "Edit", edit_polygon_path(polygon.id), class: "btn btn-primary float-end", style: "text-decoration: none; color: white"%>
+              <%end%>
+            </div>
+          </div>
+        </div>
+      <% end%>
+    <%end%>
+    <%if user_signed_in?%>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card border-light shadow rounded-3 mb-3">
+          <%= link_to new_polygon_path do%>
+            <%=image_tag "/assets/plus-symbol.png", class: "img-fluid"%>
+          <%end%>
+          <div class="card-footer">Create 3D model</div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>
