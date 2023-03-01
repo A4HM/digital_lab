@@ -23,9 +23,6 @@
         <div class="col-md-6 col-sm-12">
           <%= link_to lab_lab_sections_path(lab) do %>
             <div class="scale-on-hover rounded border p-2 bg-light">
-              <%if lab.logo.attached?%>
-                <%= image_tag lab.logo, class: "me-4 rounded-3", style: "height:80px" %>
-              <%end%>
               <span style="font-size:18px"><%=lab.name%></span>
             </div>
           <% end %>

@@ -1,0 +1,15 @@
+<h1>Edit <%=@polygon.name%></h1>
+<%= form_with model: @polygon do |f|%>
+  <%=f.label :name%>
+  <%=f.text_field :name%><br/>
+
+  <%=f.label :file%>
+  <%=f.file_field :file%><br/>
+
+  <%=f.label :preview%>
+  <%=f.file_field :preview%><br/>
+
+  <%=f.submit%>
+<%end%>
+
+<%=button_to "Delete", polygon_path(@polygon.id), class: "btn btn-danger m-5", method: :delete, data: {turbo_confirm: "Are you sure? This action can't be reversed."}%>

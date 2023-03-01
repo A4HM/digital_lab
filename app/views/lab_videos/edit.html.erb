@@ -1,5 +1,4 @@
 <h1> Edit video</h1>
-<p><strong><em>make sure you paste the link for the embed! Click on the youtube video then the "share" button, after that choose "embed" and you will see on the left "src="https://www.youtube.com/embed/"", link starts from "https://".</strong></em></p>
 <%= form_with model: @lab_video, url: lab_video_path(@lab_video.id) do |f|%>
   <%=f.label :url%>
   <%=f.text_field :url%><br/>

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "home#index"
   
 
-  devise_for :users
+  devise_for :users, only: [:sessions]
 
   #search route
   get "/search", to: "home#search", as: :search
