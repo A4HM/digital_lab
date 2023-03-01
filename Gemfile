@@ -74,3 +74,4 @@ end
 gem 'devise'
 gem "pg" #postgres
 gem 'jquery-rails'
+gem 'active_storage_validations'
