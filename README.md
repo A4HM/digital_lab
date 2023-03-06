@@ -1,24 +1,8 @@
 # README
+to run this application:
+- rails db:create
+- rails db:migrate
+- rails db:seed (this will create the labs and an Editor with an email and a password)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+if you want to add\delete\change an editor do so in the seeds.rb file (ie. manually) becuase this app doesn't have an Admin page. You can, however, create one if needed because the app supports user authentication, authorization, password encryption and more using the Devise gem.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
