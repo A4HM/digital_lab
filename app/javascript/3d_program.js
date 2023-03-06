@@ -13,7 +13,7 @@ const canvas = document.querySelector("#canvas");
 const leftPanel = document.querySelector("#left-panel");
 const middlePanel = document.querySelector("#middle-panel");
 const rightPanel = document.querySelector("#right-panel");
-let turboFramesId = [];
+const polygonSrc = document.getElementById("polygon").dataset.src;
 
 const widthHalf = canvas.getBoundingClientRect().width / 2;
 const heightHalf = canvas.getBoundingClientRect().height / 2;
@@ -60,7 +60,7 @@ hudContext.strokeStyle = "green";
 hudContext.lineWidth = 2;
 
 //-----load model-----//
-const url = "/Parrot.glb";
+const url = polygonSrc;
 const gltfLoader = new GLTFLoader();
 gltfLoader.load(url,
   function (data) {
