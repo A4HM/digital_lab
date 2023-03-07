@@ -5,7 +5,7 @@ class Lab < ApplicationRecord
   has_many :lab_sections
   has_many :lab_videos
 
-  validates :logo, attached: true, content_type: ['image/png', 'image/jpeg']
+  validates :logo, content_type: ['image/png', 'image/jpeg']
 
 
   def self.search(query)

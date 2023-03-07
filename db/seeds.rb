@@ -7,3 +7,5 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
+Lab.create([{ name: "Anatomy" }, { name: "Physiology" }, { name: "Biochemistry" }, { name: "Microbiology" }, { name: "Histology" }, { name: "Pathology" }])
+User.create({ email: "test@gmail.com", password: "111111", password_confirmation: "111111"})
