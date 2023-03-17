@@ -1,6 +1,6 @@
 # Documentation
  Sections:
-- [ overview ] (#-overview)
+- [overview](#overview)
 - [Part 1: images] (#part-1:-images)
 - [Part 2: search] (#part-2:-search)
 - [Part 3: 3D] (#part-3:-3d)
