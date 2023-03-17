@@ -1,9 +1,9 @@
 # Documentation
  Sections:
 - [overview](#overview)
-- [part 1: images](#part-1:-images)
-- [Part 2: search](#part-2:-search)
-- [Part 3: 3D](#part-3:-3d)
+- [part 1: images](#part-1-images)
+- [Part 2: search](#part-2-search)
+- [Part 3: 3D](#part-3-3d)
 
 # Overview
 This application is made for the digital lab project using Ruby on Rails (RoR) as its framework. The app serves three basic functionalities: show image slides and videos, search for these images, label and view 3D models. There is also an Editor user for creating/editing/deleting content from the website using the Devise gem.
