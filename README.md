@@ -40,7 +40,7 @@ The tables related to this part of the app are:
 
 The Polygons table references the 3D model source file (again, ActiveStorage stores the file but enables it to be referenced through any table), and has a one-to-many relation with the Labels table. So a polygon has many labels, but a label can only belong to on polygon.
 
-The program itself, written in javascript, was initially built using only raw webgl and a linear algebra math library, but because of the unresonable complexity of writing a full 3D software from scratch, which makes maintaining and changing the code a hard task, the library THREE.js was adopted and the program had to be rewritten again. 
+The program itself, written in javascript, was initially built using only raw webgl and a linear algebra math library, but because of the unresonable complexity of writing a full 3D software from scratch, which makes maintaining and changing the code a hard task, the library THREE.js was adopted and the program had to be rewritten again. You can find the old code [here](https://github.com/A4HM/brain-js)
 
 There are two versions of this program, one for regular users, and the other is for editing labels.
 
