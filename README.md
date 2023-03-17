@@ -9,6 +9,13 @@
 # Overview
 This application is made for the digital lab project using Ruby on Rails (RoR) as its framework. The app serves three basic functionalities: show image slides and videos, search for these images, label and view 3D models. There is also an Editor user for creating/editing/deleting content from the website using the Devise gem.
 
+To run this app locally:
+1. make sure you have all thr required gems (libraries) by running `bundle install`
+2. create the database with `rails db:create`
+3. create the tables with `rails db:migrate`
+4. seed the databse with the necessary items `rails db:seed` (this will fill the Labs table, and create an Editor user with an email of ... and a password of ...)
+5. now run the server by `rails server` tyen open your browser to "localhost:3000"
+
 
 # Part 1: images
 The first job of this website is to allow users to view slides made from medical students, and enable users to sign in as editors with the authority to upload new slides and delete them. 
