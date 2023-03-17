@@ -21,7 +21,7 @@ The Lab table also has a string column for youtube URLs, this is used to generat
 
 
 # Part 2: search
-The search function that is used can be found inside the Lab model file (app/models/lab.rb). The function simply loops through  all three lab tables recursively and executes an sql search method with the qeury, then restructure the results into an ordered hashmap.
+The search function that is used can be found inside the Lab model file (app/models/lab.rb). The function simply loops through  all three lab tables recursively and executes an sql search method with the qeury, then restructure the results into an ordered hashmap. It has an O(n^3) time complexity.
 
 
 # Part 3: 3D
