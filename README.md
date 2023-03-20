@@ -13,7 +13,7 @@ To run this app locally:
 1. make sure you have all thr required gems (libraries) by running `bundle install`
 2. create the database with `rails db:create`
 3. create the tables with `rails db:migrate`
-4. seed the databse with the necessary items `rails db:seed` (this will fill the Labs table, and create an Editor user with an email of ... and a password of ...)
+4. seed the databse with the necessary items `rails db:seed` (this will fill the Labs table, and create an Editor user with an email of "test@gmail.com and a password of "111111")
 5. now run the server by `rails server` tyen open your browser to "localhost:3000"
 
 
