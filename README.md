@@ -26,7 +26,6 @@ The tables for this part of the application are:
 - LabSubSections
 
 Labs table is a parent of LabSections table, and LabSections table is a parent of LabSubSections table. The same applies in reverse as child of. Images are referenced (not stored) in the LabSubSections table, this is because ActiveStorage handles the storage of files by itself. So for an editor to upload images, he needs to choose which lab to upload to, then which section within that lab, and finally pick a sub-section to upload his images, or create one if necessary. He can also create new lab sections within a lab.
-The Lab table also has a string column for youtube URLs, this is used to generate youtube iframes. URLs are tested first with a Regex expression to ensure the link is not from malicious websites, then the id of the video (the v= qeury) is taken from the link to create a proper embed youtube link (https://www.youtube.com/embed/*video id*).
 
 
 # Part 2: search
