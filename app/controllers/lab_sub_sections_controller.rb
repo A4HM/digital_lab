@@ -2,7 +2,7 @@ class LabSubSectionsController < ApplicationController
 
   def index
     @lab_section = LabSection.find(params[:lab_section_id])
-    @lab_sub_sections = @lab_section.lab_sub_sections
+    @lab_sub_sections = @lab_section.lab_sub_sections.sort_by(&:created_at)
   end
   
   def create
